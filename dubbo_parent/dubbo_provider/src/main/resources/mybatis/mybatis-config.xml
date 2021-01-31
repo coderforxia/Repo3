@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+	<!--指定实体类型别名-->
+	<typeAliases>
+		<!--为某个实体类取别名
+		<typeAlias type="com.team.entity.Student" alias="Student"></typeAlias>
+		<typeAlias type="com.team.entity.Grade" alias="Grade"></typeAlias>
+		-->
+		<!--为某个包下的类取别名  类名即别名-->
+		<package name="com.team.dubbo.entity"></package>
+	</typeAliases>
+
+    <!-- 指定义连接数据的配置
+	<environments default="development">
+		<environment id="development">
+		    <transactionManager type="JDBC"/>
+			<dataSource type="POOLED">
+			<property name="driver" value="com.mysql.jdbc.Driver"/>
+			<property name="url" value="jdbc:mysql://localhost:3306/k0501db?useUnicode=true&amp;characterEncoding=utf-8"/>
+			<property name="username" value="root"/>
+			<property name="password" value="123"/>
+			</dataSource>
+		</environment>
+	</environments>
+ -->
+	<!--配置分页的插件-->
+	<plugins>
+		<plugin interceptor="com.github.pagehelper.PageInterceptor"></plugin>
+	</plugins>
+
+	<!-- 加载sql映射文件 -->
+	<mappers>
+		<!--<mapper resource="com/team/dao/GradeMapper.xml"/>
+		<mapper resource="com/team/dao/StudentMapper.xml"/>-->
+		<!--加载某个所有的映射文件-->
+		<package name="com.team.dubbo.mapper"></package>
+	</mappers>
+
+
+</configuration>
